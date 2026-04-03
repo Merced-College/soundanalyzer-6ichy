@@ -1,15 +1,21 @@
 #include "SoundAnalyzer.h"
 
-// Constructor
+// Constructor — stores the threshold values used for classification
 SoundAnalyzer::SoundAnalyzer(int quiet, int medium) {
-    // TODO: store threshold values
+    quietThreshold  = quiet;
+    mediumThreshold = medium;
 }
 
-// Classify sound
+// Classify sound level into one of three categories:
+//   below quietThreshold  -> "Quiet"
+//   below mediumThreshold -> "Medium"
+//   at or above           -> "Loud"
 std::string SoundAnalyzer::classifySound(int soundLevel) {
-    // TODO:
-    // Use thresholds to return:
-    // "Quiet", "Medium", or "Loud"
-
-    return "Unknown"; // placeholder
+    if (soundLevel < quietThreshold) {
+        return "Quiet";
+    } else if (soundLevel < mediumThreshold) {
+        return "Medium";
+    } else {
+        return "Loud";
+    }
 }

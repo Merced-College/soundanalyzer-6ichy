@@ -1,21 +1,17 @@
 #include "SoundSensor.h"
 #include <Arduino.h>
 
-// Constructor
+// Constructor — stores the analog pin number
 SoundSensor::SoundSensor(int sensorPin) {
-    // TODO: store the pin value
+    pin = sensorPin;
 }
 
-// Initialize sensor
+// Initialize sensor — configure pin as input
 void SoundSensor::begin() {
-    // TODO: set pin mode if needed
+    pinMode(pin, INPUT);
 }
 
-// Read sound level
+// Read sound level — returns raw analog value (0–1023)
 int SoundSensor::getSoundLevel() {
-    // TODO:
-    // - read from analog pin
-    // - return the value
-
-    return 0; // placeholder
+    return analogRead(pin);
 }
